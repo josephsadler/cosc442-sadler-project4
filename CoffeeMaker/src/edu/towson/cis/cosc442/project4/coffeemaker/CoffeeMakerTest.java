@@ -42,6 +42,13 @@ public class CoffeeMakerTest extends TestCase {
 	
 	public void testAddInventory1() {
 		assertTrue(cm.addInventory(5, 5, 5, 5));
+		Inventory inv = cm.checkInventory();
+		assertEquals(20, inv.getCoffee());
+		assertEquals(20, inv.getMilk());
+		assertEquals(20, inv.getSugar());
+		assertEquals(20, inv.getChocolate());
+		
+		assertTrue(cm.addInventory(0, 0, 0, 0));
 	}
 	
 	public void testCheckInventory() {
@@ -50,7 +57,12 @@ public class CoffeeMakerTest extends TestCase {
 	
 	public void testPurchaseBeverage1() { //Test successful purchase
 		cm.addRecipe(r1);
+		Inventory inv = cm.checkInventory();
 		assertEquals(0, cm.makeCoffee(r1,50));
+		assertEquals(15 - r1.getAmtCoffee(), inv.getCoffee());
+		assertEquals(15 - r1.getAmtMilk(), inv.getMilk());
+		assertEquals(15 - r1.getAmtSugar(), inv.getSugar());
+		assertEquals(15 - r1.getAmtChocolate(), inv.getChocolate());
 	}
 	
 	public void testPurchaseBeverage2() { //Test not enough money inserted
@@ -83,7 +95,18 @@ public class CoffeeMakerTest extends TestCase {
 		r2.setAmtMilk(100);
 		r2.setAmtSugar(100);
 		r2.setAmtChocolate(100);
-		cm.checkInventory().enoughIngredients(r2);
+		assertFalse(cm.checkInventory().enoughIngredients(r2));
+	}
+	
+	public void testEnoughIngredients2() {
+		Recipe r2 = new Recipe();
+		r2.setName("Coffee");
+		r2.setPrice(50);
+		r2.setAmtCoffee(15);
+		r2.setAmtMilk(15);
+		r2.setAmtSugar(15);
+		r2.setAmtChocolate(15);
+		assertTrue(cm.checkInventory().enoughIngredients(r2));
 	}
 	
 	public void testInventorySetters() {
@@ -111,6 +134,18 @@ public class CoffeeMakerTest extends TestCase {
 		r2.setAmtSugar(-1);
 		r2.setAmtChocolate(-1);
 		r2.setPrice(-1);
+		
+		assertEquals(0, r2.getAmtCoffee());
+		assertEquals(0, r2.getAmtMilk());
+		assertEquals(0, r2.getAmtSugar());
+		assertEquals(0, r2.getAmtChocolate());
+		assertEquals(0, r2.getPrice());
+		
+		r2.setAmtCoffee(0);
+		r2.setAmtMilk(0);
+		r2.setAmtSugar(0);
+		r2.setAmtChocolate(0);
+		r2.setPrice(0);
 		
 		assertEquals(0, r2.getAmtCoffee());
 		assertEquals(0, r2.getAmtMilk());

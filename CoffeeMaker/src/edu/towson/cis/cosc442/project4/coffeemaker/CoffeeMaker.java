@@ -15,9 +15,10 @@ public class CoffeeMaker {
 	
     /**
      * Constructor for the coffee maker
+     * @  
      *
      */
-	public CoffeeMaker() {
+	public CoffeeMaker()   {
 	    recipeArray = new Recipe[NUM_RECIPES];
 	    recipeFull = new boolean[NUM_RECIPES];
 		for(int i = 0; i < NUM_RECIPES; i++) {
@@ -117,8 +118,9 @@ public class CoffeeMaker {
      * @param amtSugar
      * @param amtChocolate
     
-     * @return boolean */
-    public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate) {
+     * @return boolean 
+     * @  */
+    public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate)   {
         boolean canAddInventory = true;
         if(amtCoffee < 0 || amtMilk < 0 || amtSugar < 0 || amtChocolate < 0) { //amtSugar > 0 changed to amtSugar < 0
             canAddInventory = false;
@@ -146,8 +148,9 @@ public class CoffeeMaker {
      * @param r
      * @param amtPaid
     
-     * @return int */
-    public int makeCoffee(Recipe r, int amtPaid) {
+     * @return int 
+     * @  */
+    public int makeCoffee(Recipe r, int amtPaid)   {
         boolean canMakeCoffee = true;
         if(amtPaid < r.getPrice()) {
             canMakeCoffee = false;

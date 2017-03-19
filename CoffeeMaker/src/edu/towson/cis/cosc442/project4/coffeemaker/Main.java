@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 public class Main {
     private static CoffeeMaker coffeeMaker;
 
-    public static void mainMenu() {
+    public static void mainMenu()  {
         System.out.println("1. Add a recipe");
         System.out.println("2. Delete a recipe");
         System.out.println("3. Edit a recipe");
@@ -32,7 +32,7 @@ public class Main {
         if(userInput == 6) makeCoffee();
         if(userInput == 0) System.exit(0);
     }
-	public static void addRecipe() {
+	public static void addRecipe()  {
 	    //Read in recipe name
 	    final String name = inputOutput(System.lineSeparator() + "Please enter the recipe name: ");
 	    
@@ -88,7 +88,7 @@ public class Main {
 	    mainMenu();
     }
     
-    public static void deleteRecipe() {
+    public static void deleteRecipe()  {
         Recipe [] recipes = coffeeMaker.getRecipes();
         for(int i = 0; i < recipes.length; i++) {
             System.out.println((i+1) + ". " + recipes[i].getName());
@@ -107,7 +107,7 @@ public class Main {
         mainMenu();
     }
     
-    public static void editRecipe() {
+    public static void editRecipe()  {
         Recipe [] recipes = coffeeMaker.getRecipes();
         for(int i = 0; i < recipes.length; i++) {
             System.out.println((i+1) + ". " + recipes[i].getName());
@@ -174,7 +174,7 @@ public class Main {
         mainMenu();
     }
     
-    public static void addInventory() {
+    public static void addInventory()  {
 	    //Read in amt coffee
     	final String coffeeString = inputOutput(System.lineSeparator() + "Please enter the units of coffee to add: ");
     	final int amtCoffee = stringToInt(coffeeString);
@@ -212,13 +212,13 @@ public class Main {
         mainMenu();
     }
     
-    public static void checkInventory() {
+    public static void checkInventory()  {
         Inventory inventory = coffeeMaker.checkInventory();
         System.out.println(inventory.toString());
         mainMenu();
     }
     
-    public static void makeCoffee() {
+    public static void makeCoffee()  {
         Recipe [] recipes = coffeeMaker.getRecipes();
         for(int i = 0; i < recipes.length; i++) {
             System.out.println((i+1) + ". " + recipes[i].getName());
@@ -246,8 +246,9 @@ public class Main {
      * Method inputOutput.
      * @param message String
      * @return String
+     * @ 
      */
-    public static String inputOutput(String message) {
+    public static String inputOutput(String message)  {
         System.out.println(message);
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    String returnString = "";
@@ -280,8 +281,9 @@ public class Main {
     /**
      * Method main.
      * @param args String[]
+     * @ 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 	    coffeeMaker = new CoffeeMaker();
 	    System.out.println("Welcome to the CoffeeMaker!" + System.lineSeparator());
 	    mainMenu();

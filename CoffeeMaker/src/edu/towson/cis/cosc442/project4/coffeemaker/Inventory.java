@@ -12,7 +12,7 @@ public class Inventory {
     private static int sugar;
     private static int chocolate;
     
-    public Inventory() {
+    public Inventory()   {
     	setCoffee(15);
     	setMilk(15);
     	setSugar(15);
@@ -29,8 +29,9 @@ public class Inventory {
     /**
      * Method setChocolate.
      * @param chocolate int
+     * @  
      */
-    public void setChocolate(int chocolate) {
+    public void setChocolate(int chocolate)   {
     	if(chocolate >= 0) {
     		Inventory.chocolate = chocolate;
     	}
@@ -49,8 +50,9 @@ public class Inventory {
     /**
      * Method setCoffee.
      * @param coffee int
+     * @  
      */
-    public void setCoffee(int coffee) {
+    public void setCoffee(int coffee)   {
     	if(coffee >= 0) {
     		Inventory.coffee = coffee;
     	}
@@ -68,8 +70,9 @@ public class Inventory {
     /**
      * Method setMilk.
      * @param milk int
+     * @  
      */
-    public void setMilk(int milk) {
+    public void setMilk(int milk)   {
     	if(milk >= 0) {
     		Inventory.milk = milk;
     	}
@@ -87,8 +90,9 @@ public class Inventory {
     /**
      * Method setSugar.
      * @param sugar int
+     * @  
      */
-    public void setSugar(int sugar) {
+    public void setSugar(int sugar)   {
     	if(sugar >= 0) {
     		Inventory.sugar = sugar;
     	}
