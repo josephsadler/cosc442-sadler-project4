@@ -101,7 +101,7 @@ public class Main {
         
         boolean recipeDeleted = coffeeMaker.deleteRecipe(recipes[recipeToDelete]);
         
-        if(recipeDeleted) System.out.println(recipes[recipeToDelete].getName() + " successfully deleted.");
+        if(recipeDeleted) System.out.println("Recipe was successfully deleted."); //Causing a null pointer exception
 	    else System.out.println(recipes[recipeToDelete].getName() + "could not be deleted.");
         
         mainMenu();
@@ -203,7 +203,12 @@ public class Main {
 	    	mainMenu();
 	    }
 	    
-        coffeeMaker.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
+        if (coffeeMaker.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate)) {
+        	System.out.println("Inventory successfully added");
+        }
+        else {
+        	System.out.println("Inventory could not be added");
+        }
         mainMenu();
     }
     
